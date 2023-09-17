@@ -18,3 +18,5 @@
 
 Для запуска скачайте репозиторий, перейдите в папку crm-backend и выполните команду node index.
 Затем откройте index.html в браузере.
+
+![Screenshot](https://github.com/Manakovnik/gitCRM/blob/main/img/screenshot.jpg
