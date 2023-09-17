@@ -1,0 +1,74 @@
+@media (max-width: 1290px) {
+  .container {
+    margin: 0 45px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    min-width: 480px;
+  }
+
+  .container {
+    margin: 0 15px;
+  }
+
+  .header__input--text {
+    width: 70%;
+  }
+
+  .table__order {
+    display: none;
+  }
+  .table__body--id {
+    display: none;
+  }
+
+  .table__column-title {
+    font-size: 10px;
+  }
+
+  .table__body--secondary-text {
+    font-size: 10px;
+  }
+
+  .table__body--secondary-text span {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    margin-left: 3px;
+    color: rgba(240, 106, 77, 0.8);
+  }
+
+  .table__body--main-text {
+    padding-left: 20px;
+  }
+
+  .table__row--change-btn {
+    font-size: 12px;
+  }
+
+  .change-btn-row {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .table__row--change-btn {
+    font-size: 0;
+    height: 20px;
+    margin-right: 10px;
+    height: 25px;
+    width: 25px;
+    background-size: 100%;
+  }
+  .actions {
+    margin-right: 20px;
+  }
+  #table-creationDate {
+    width: 15%;
+  }
+  #table-changeDate {
+    width: 15%;
+  }
+}

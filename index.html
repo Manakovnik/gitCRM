@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/preloader.scss" />
+    <link rel="stylesheet" href="/css/normilize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/media.css" />
+    <title>CRM</title>
+  </head>
+  <body>
+    <div id="preloader" class="preloader">
+      <div class="loader"></div>
+    </div>
+
+    <div class="header">
+      <div class="header__logo">
+        <span class="header__logo--title">C.R.M.</span>
+      </div>
+      <div class="header__input">
+        <input
+          class="header__input--text"
+          type="text"
+          name="text"
+          id="searchField"
+          placeholder="Введите запрос"
+        />
+      </div>
+    </div>
+
+    <div class="container">
+      <h1 class="title">Клиенты</h1>
+      <table class="table">
+        <thead>
+          <tr class="table__header">
+            <th
+              id="table-ID"
+              class="table__column-title cursorPointer table__order"
+            >
+              ID
+              <span id="arrow-id" class="table__svg--arrow-up svg"></span>
+            </th>
+            <th id="table-FIO" class="table__column-title cursorPointer">
+              Фамилия Имя Отчество
+              <span
+                id="arrow-fio"
+                class="table__svg--arrow-up table__svg--arrow-down svg"
+              ></span>
+              <span class="table__order">А-Я</span>
+            </th>
+            <th
+              id="table-creationDate"
+              class="table__column-title cursorPointer"
+            >
+              Дата и время создания
+              <span
+                id="arrow-creationDate"
+                class="table__svg--arrow-up table__svg--arrow-down svg"
+              ></span>
+            </th>
+            <th id="table-changeDate" class="table__column-title cursorPointer">
+              Последние изменения
+              <span
+                id="arrow-changeDate"
+                class="table__svg--arrow-up table__svg--arrow-down svg"
+              ></span>
+            </th>
+            <th class="table__column-title">Контакты</th>
+            <th class="table__column-title actions">Действия</th>
+            <th class="table__column-title"></th>
+          </tr>
+        </thead>
+        <tbody class="table__body" id="table__body"></tbody>
+      </table>
+
+      <button type="submit" class="btn__submit" id="clientAddTableBtn">
+        <span class="btn__svg svg"></span>
+        Добавить клиента
+      </button>
+    </div>
+
+    <div class="change-data" id="addClientWindow">
+      <div class="change-data__window">
+        <div class="change-data__header">
+          <h2 class="change-data__title">Изменить данные</h2>
+          <span class="change-data__id" id="change-data__id">ID:</span>
+          <button
+            class="change-data__close--btn"
+            id="closeClientWindow"
+          ></button>
+        </div>
+
+        <form id="add-client-form" action="">
+          <div class="form-input__wrapper">
+            <div class="form-input">
+              <label for="addSurname" class="form__label"
+                >Фамилия<span>*</span></label
+              >
+              <input
+                type="text"
+                class="form-input__name"
+                name="surname"
+                id="addSurname"
+              />
+            </div>
+            <div class="form-input">
+              <label for="addName" class="form__label">Имя<span>*</span></label>
+              <input
+                type="text"
+                class="form-input__name"
+                name="name"
+                id="addName"
+              />
+            </div>
+            <div class="form-input">
+              <label for="addLastName" class="form__label">Отчечтво</label>
+              <input
+                type="text"
+                class="form-input__name"
+                name="lastname"
+                id="addLastName"
+              />
+            </div>
+          </div>
+
+          <div class="form-contacts">
+            <div class="form-contacts__wrapper"></div>
+            <div class="form-contacts__add-btn">
+              <span class="add-btn__svg svg"></span>
+              <button type="button" class="add-btn" id="addContact">
+                Добавить контакт
+              </button>
+            </div>
+
+            <input
+              type="submit"
+              value="Сохранить"
+              class="save-btn"
+              id="saveClient"
+            />
+            <input
+              type="button"
+              value="Удалить клиента"
+              class="delete-btn"
+              id="deleteClient"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script>
+      const validate = new window.JustValidate("#add-client-form");
+    </script>
+    <script src="/js/preloader.js"></script>
+    <script type="module" src="/js/local-host.js"></script>
+    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/contacts-icons.js"></script>
+    <script type="module" src="/js/sort-rows.js"></script>
+    <script type="module" src="/js/search.js"></script>
+    <script type="module" src="/js/modal-window.js"></script>
+    <script type="module" src="/js/add-contact.js"></script>
+    <script type="module" src="/js/delete-modal.js"></script>
+  </body>
+</html>

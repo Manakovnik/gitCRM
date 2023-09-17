@@ -1,0 +1,679 @@
+@import url(/css/preloader.css);
+@import url(/css/_mixin.scss);
+
+body {
+  min-width: 1024px;
+  background-color: #f4f4f4;
+  font-family: sans-serif;
+  overflow-y: scroll;
+}
+
+.container {
+  margin: 0 90px;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 1px solid rgba(176, 176, 176, 1);
+}
+
+.flex {
+  display: flex;
+}
+
+.list-reset {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.actions {
+  padding-top: 10px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+// -----------------------------------шапка-------------------------------------
+.header {
+  height: 90px;
+  background-color: white;
+  box-shadow: 0px 3.38629px 5.64383px rgba(176, 190, 197, 0.32);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    margin: 20px;
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    background-color: rgba(152, 115, 255, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+  }
+  &__logo--title {
+    color: #ffffff;
+    font-weight: 800;
+  }
+
+  &__input {
+    padding-left: 53px;
+    min-width: 200px;
+    width: 600px;
+    height: 44px;
+  }
+
+  &__input--text {
+    width: 100%;
+    height: 44px;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    padding: 0px 16px;
+  }
+}
+
+.title {
+  padding-top: 40px;
+  margin: 0;
+  margin-bottom: 26px;
+}
+
+td {
+  height: 60px;
+  border-bottom: 1px solid rgba(200, 197, 209, 1);
+}
+
+td:first-child {
+  padding-left: 10px;
+}
+
+// --------------------------заголовки таблицы--------------------
+th {
+  text-align: left;
+  padding-left: 5px;
+}
+
+th:first-child {
+  padding-left: 20px;
+}
+
+// -------------------------------таблица------------------------
+.table {
+  width: 100%;
+  border-spacing: 0;
+
+  &__header {
+    height: 35px;
+    margin-bottom: 8px;
+  }
+
+  &__body {
+    font-size: 14px;
+    background-color: #ffffff;
+  }
+
+  &__body--id {
+    font-size: 12px;
+    color: rgba(176, 176, 176, 1);
+  }
+
+  &__body--main-text {
+    color: rgba(51, 51, 51, 1);
+    font-weight: 600;
+  }
+
+  &__body--secondary-text {
+    color: rgba(176, 176, 176, 1);
+    width: 100px;
+  }
+
+  &__body--creation-time {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  &__column-title {
+    color: rgba(176, 176, 176, 1);
+    font-size: 12px;
+  }
+
+  &__row {
+    background-color: #ffffff;
+    height: 60px;
+  }
+
+  &__svg--arrow-up {
+    background-image: url(/img/arrow-up.svg);
+  }
+
+  &__svg--arrow-down {
+    background-image: url(/img/arrow-down.svg);
+  }
+
+  &__order {
+    color: rgba(152, 115, 255, 1);
+  }
+
+  &__icons {
+    margin-right: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  &__row--change-btn {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  &__body--secondary-text {
+    color: rgba(51, 51, 51, 1);
+    font-size: 12px;
+  }
+
+  &__body--secondary-text span {
+    color: rgba(176, 176, 176, 1);
+    margin-left: 16px;
+    font-size: 12px;
+  }
+}
+
+.svg {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 15px;
+  height: 15px;
+  margin-bottom: -3px;
+}
+
+// ----------------------кнопка добавления нового клиента-----------------------
+.btn {
+  &__submit {
+    width: 224px;
+    height: 44px;
+    display: block;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 40px;
+    color: rgba(152, 115, 255, 1);
+
+    border: 1px solid rgba(152, 115, 255, 1);
+    cursor: pointer;
+  }
+
+  &__submit:hover {
+    background-color: rgb(166, 135, 253);
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+  }
+
+  &__submit:hover &__svg {
+    background-image: url(/img/addPersonWhite.svg);
+    transition: 0.3s ease-in-out;
+  }
+
+  &__submit--active {
+    animation: active 0.5s ease;
+    @keyframes active {
+      from {
+      }
+      to {
+        height: 40px;
+        width: 220px;
+        outline: rgb(166, 135, 253) solid 4px;
+        outline-width: thin;
+        outline-offset: 4px;
+      }
+    }
+  }
+
+  &__svg {
+    background-image: url(/img/addPerson.svg);
+    width: 22px;
+    height: 16px;
+    margin-right: 10px;
+  }
+}
+
+// -----------------------модальное окно добавления/изменения клиента---------------------------
+.change-data {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 36, 36, 0.5);
+  z-index: 10;
+  transition: 1s all;
+  opacity: 1;
+  visibility: visible;
+  display: none;
+
+  &__window {
+    width: 450px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 3%;
+    left: 35%;
+    padding: 25px 30px;
+  }
+
+  &__title {
+    margin-right: 9px;
+    font-size: 18px;
+  }
+
+  &__id {
+    height: 30px;
+    padding-top: 20px;
+    color: rgba(176, 176, 176, 1);
+    font-size: 12px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__close--btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-image: url(/img/close-grey.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+//--------------------- поля ввода модального окна-----------------------------
+
+.form__label {
+  position: absolute;
+  color: rgba(176, 176, 176, 1);
+  font-size: 10px;
+  margin-top: -10px;
+  & span {
+    color: rgba(240, 106, 77, 1);
+    font-size: 16px;
+  }
+}
+
+.form-input {
+  position: relative;
+
+  &__name {
+    height: 20px;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid rgba(176, 176, 176, 1);
+  }
+
+  &__name:last-child {
+    margin-bottom: 26px;
+  }
+  &__wrapper {
+  }
+}
+
+// -------------------------поля ввода контактов-----------------------------------
+.form-contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__wrapper {
+    width: 113.3%;
+    background-color: rgba(200, 197, 209, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__contact {
+    height: 37px;
+    display: flex;
+
+    margin-bottom: 10px;
+  }
+
+  &__contact:first-child {
+    padding-top: 25px;
+  }
+
+  /* &__select {
+  width: 120px;
+  font-size: 14px;
+  padding: 10px 12px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: url("/img/down.svg") no-repeat right center;
+  background-position: 100px;
+  outline: none;
+  color: rgba(51, 51, 51, 1);
+  background-color: rgba(200, 197, 209, 0.2);
+  border: 1px solid #c8c5d1;
+} */
+
+  &__input {
+    font-size: 14px;
+    padding: 10px 12px;
+    outline: none;
+    background-color: rgba(200, 197, 209, 0);
+    border: 1px solid #c8c5d1;
+  }
+
+  &__input::placeholder {
+    color: #b0b0b0;
+  }
+
+  &__close {
+    border: 1px solid #c8c5d1;
+    background-color: rgba(200, 197, 209, 0.2);
+    background-image: url(/img/close-grey-small.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 8px 12px 10px;
+    cursor: pointer;
+  }
+
+  &__close:hover {
+    border: 1px solid rgba(240, 106, 77, 1);
+    background-image: url(/img/cancel.svg);
+  }
+
+  &__add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 113%;
+    margin-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(200, 197, 209, 0.2);
+  }
+
+  &__add-btn:hover .add-btn__svg {
+    background-image: url(/img/plus.svg);
+  }
+}
+
+//-------------------------- добавление дополнительного контакта----------------
+.add-btn {
+  display: block;
+  border: none;
+  background: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+
+  &__svg {
+    margin-top: -3px;
+    animation: bckgrnd 3s ease-in-out infinite;
+    border-radius: 15px;
+    @keyframes bckgrnd {
+      0% {
+        background-image: none;
+        background-color: rgba(152, 115, 255, 1);
+      }
+      50% {
+        background-image: url(/img/plus-light.svg);
+      }
+      75% {
+        background-color: white;
+      }
+      100% {
+        background-image: none;
+      }
+    }
+  }
+
+  &:hover {
+    color: rgba(152, 115, 255, 1);
+    transition: 0.3s ease;
+  }
+}
+
+//---------------------------- кнопки----------------------
+.save-btn {
+  background-color: rgba(152, 115, 255, 0.7);
+  color: #ffffff;
+  border: none;
+  width: 150px;
+  height: 44px;
+  cursor: pointer;
+  margin-bottom: 5px;
+
+  &:hover {
+    background-color: rgba(152, 115, 255, 1);
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+  }
+
+  &:active {
+    width: 146px;
+    height: 40px;
+    outline: rgb(166, 135, 253) solid 4px;
+    outline-width: thin;
+    outline-offset: 4px;
+  }
+}
+
+.delete-btn {
+  cursor: pointer;
+  display: block;
+  border: none;
+  background: none;
+  font-size: 12px;
+  text-decoration: underline;
+
+  &:hover {
+    color: rgba(152, 115, 255, 1);
+  }
+
+  &:active {
+    color: rgba(152, 115, 255, 1);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  &-row {
+    padding-left: 15px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-image: url(/img/close-red.svg);
+  }
+
+  &-row:hover {
+    transition: 0.3s ease;
+    color: rgba(240, 106, 77, 1);
+  }
+}
+
+.change-btn-row {
+  padding-left: 15px;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-image: url(/img/pen.svg);
+
+  &:hover {
+    transition: 0.3s ease;
+    color: rgba(152, 115, 255, 1);
+  }
+}
+
+// --------------------модальное окно удаления клиента---------------------
+.modal-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  &__text {
+    max-width: 275px;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+//---------------------------- выпадающий список----------------------
+
+.dropdown {
+  &__btn {
+    position: relative;
+    display: block;
+    width: 120px;
+    font-size: 14px;
+    padding: 10px 12px;
+    padding-left: 5px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: none;
+    background: url("/img/down.svg") no-repeat right center;
+    background-position: 100px;
+    outline: none;
+    color: rgba(51, 51, 51, 1);
+    background-color: rgba(200, 197, 209, 0.2);
+    border: 1px solid #c8c5d1;
+    cursor: pointer;
+  }
+  &__list {
+    position: absolute;
+    left: 82px;
+    background-color: rgba(244, 243, 246, 1);
+    border: 1px solid rgba(200, 197, 209, 1);
+    border-radius: 0;
+    border-bottom: 1px solid rgba(200, 197, 209, 1);
+    min-height: 0;
+    width: 118px;
+    height: 123px;
+    font-size: 14px;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1;
+  }
+  &__list--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__item {
+    background-color: rgba(244, 243, 246, 1);
+    word-break: keep-all;
+    font-size: 12px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 5px;
+  }
+  &__item:hover {
+    background-color: rgb(217, 217, 218);
+  }
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(51, 51, 51, 1);
+    width: 100px;
+  }
+}
+
+// --------------------------- иконки контактов -------------------------
+.contact-img {
+  position: relative;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.3, 1.3);
+    transition: 0.3s ease;
+  }
+}
+
+.phone {
+  background-image: url(/img/phone.svg);
+}
+
+.add-phone {
+  background-image: url(/img/person.svg);
+}
+
+.email {
+  background-image: url(/img/mail.svg);
+}
+
+.vk {
+  background-image: url(/img/vk.svg);
+}
+
+.facebook {
+  background-image: url(/img/fb.svg);
+}
+
+.tooltip {
+  background-color: rgba(44, 44, 44, 0.8);
+  color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  left: -8px;
+  top: 18px;
+  height: 20px;
+  width: auto;
+  text-align: center;
+  padding: 5px 10px;
+  padding-top: 8px;
+  z-index: 9;
+  white-space: nowrap;
+  visibility: hidden;
+
+  &:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(44, 44, 44, 0.8);
+    transform: rotateX(180deg);
+  }
+}
+
+.active {
+  visibility: visible;
+}
+
+.hidden {
+  display: none;
+}
